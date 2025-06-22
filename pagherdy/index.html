@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herdy Cakes</title>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Roboto" rel="stylesheet">
+  <style>
+    /* Reinicio global de box-sizing para una mejor consistencia */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff8f0;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    header {
+      background-color: #ffb6c1;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      color: #fff;
+      margin: 0;
+      font-size: 5em; /* Puedes ajustar este valor para aumentar o disminuir el tamaño */
+    }
+    
+    /* Estilo para el logo debajo del título con máscara redonda */
+    header .logo {
+      max-width: 200px;
+      margin: 10px auto;
+      display: block;
+      border-radius: 50%;
+    }
+    
+    nav {
+      margin-top: 10px;
+    }
+    
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #000;
+    }
+    
+    /* Sección Hero */
+    .hero {
+      background-image: url('foto2.jpg'); /* Reemplaza con la ruta de tu imagen */
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      flex-direction: column; /* Elementos en columna */
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      background-color: #000; /* Color de reserva */
+      padding: 20px;
+    }
+    
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(241, 76, 175, 0.834); /* Overlay sutil */
+      z-index: 0;
+    }
+    
+    .hero h2 {
+      position: relative;
+      font-size: 2em;
+      z-index: 1;
+      margin: 0 0 20px;
+    }
+    
+    /* La tarjeta de contacto ahora está dentro de Hero */
+    .contact-card {
+      background-color: #ff039e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-card h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+    
+    .contact-card p {
+      margin: 5px 0;
+      font-size: 1em;
+    }
+    
+    .contact-card a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    
+    /* Secciones generales */
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    
+    /* Sección Sabores de Pasteles (solo texto) */
+    #sabores {
+      background-color: #fff;
+    }
+    
+    #sabores h2 {
+      margin-bottom: 20px;
+    }
+    
+    #sabores h3 {
+      margin-top: 30px;
+      color: #d2691e;
+    }
+    
+    #sabores ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    
+    #sabores li {
+      margin: 8px 0;
+    }
+
+    /* Sección: Galletas Decoradas */
+    #galletas {
+      background-color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    
+    #galletas h2 {
+      margin-bottom: 20px;
+    }
+
+    /* Sección Galería dividida en dos grupos */
+    #galeria h2 {
+      margin-bottom: 30px;
+    }
+    
+    #galeria h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #d2691e;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+      padding: 20px;
+    }
+    
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Pie de página */
+    footer {
+      background-color: #ffe4e1;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    /* Media Queries para responsividad */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 3em;
+      }
+      .hero {
+        height: 300px;
+      }
+      .hero h2 {
+        font-size: 1.5em;
+      }
+      section {
+        padding: 30px 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+      }
+      #sabores ul, #galletas p {
+        font-size: 0.9em;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>Herdy Cakes</h1>
+    <img class="logo" src="foto1.jpg" alt="Logo de Herdy Cakes">
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#sabores">Sabores</a>
+      <a href="#galletas">Galletas</a>
+      <a href="#galeria">Galería</a>
+      <a href="#nosotros">Sobre Mi</a>
+    </nav>
+  </header>
+  
+  <!-- Sección Hero con la tarjeta de contacto incluida -->
+  <section class="hero" id="inicio">
+    <h2>Hecho Con Amor</h2>
+    <div class="contact-card">
+      <h3>Información de Contacto</h3>
+      <p><strong>Nombre:</strong> Oralia Granillo</p>
+      <p><strong>Negocio:</strong> Herdy Cakes</p>
+      <p><strong>Teléfono:</strong> 6311672556</p>
+      <p><strong>Email:</strong> <a href="mailto:oralitahyd@gmail.com">oralitahyd@gmail.com</a></p>
+      <p><strong>Dirección:</strong> Heroica Nogales, COL: HEROES, SON, México</p>
+    </div>
+  </section>
+  
+  <!-- Sección Sabores de Pasteles (sin fotos) -->
+  <section id="sabores">
+    <h2>Sabores de Pasteles</h2>
+    <h3>Bases</h3>
+    <ul>
+      <li>Vainilla</li>
+      <li>Chocolate</li>
+      <li>Fresa</li>
+    </ul>
+    <h3>Rellenos</h3>
+    <ul>
+      <li>Fresas con crema</li>
+      <li>Frutas</li>
+      <li>Queso crema</li>
+      <li>Yogurt</li>
+      <li>Pudín</li>
+      <li>Mermelada</li>
+      <li>Plátano</li>
+      <li>Durazno</li>
+      <li>Nutella</li>
+      <li>Piña-coco</li>
+      <li>Piña colada</li>
+      <li>Chocolate</li>
+      <li>Oreo</li>
+      <li>Mazapán</li>
+      <li>Bubulu</li>
+      <li>Snickers</li>
+      <li>Milkway</li>
+      <li>Capuchino</li>
+      <li>Tres leches</li>
+    </ul>
+  </section>
+  
+  <!-- Nueva Sección: Galletas Decoradas -->
+  <section id="galletas">
+    <h2>Galletas Decoradas</h2>
+    <p>Además de mis exquisitos pasteles, también ofrezco deliciosas galletas decoradas, elaboradas a mano con gran detalle y creatividad. Ideales para cualquier ocasión especial.</p>
+  </section>
+  
+  <!-- Sección Galería -->
+  <section id="galeria">
+    <h2>Nuestra Galería</h2>
+    
+    <h3>Pasteles</h3>
+    <div class="gallery">
+      <!-- 15 fotos de pasteles -->
+      <img src="pastel1.jpg" alt="Pastel 1">
+      <img src="pastel2.jpg" alt="Pastel 2">
+      <img src="pastel3.jpg" alt="Pastel 3">
+      <img src="pastel4.jpg" alt="Pastel 4">
+      <img src="pastel5.jpg" alt="Pastel 5">
+      <img src="pastel6.jpg" alt="Pastel 6">
+      <img src="pastel7.jpg" alt="Pastel 7">
+      <img src="pastel8.jpg" alt="Pastel 8">
+      <img src="pastel9.jpg" alt="Pastel 9">
+      <img src="pastel10.jpg" alt="Pastel 10">
+      <img src="pastel11.jpg" alt="Pastel 11">
+      <img src="pastel12.jpg" alt="Pastel 12">
+      <img src="pastel13.jpg" alt="Pastel 13">
+      <img src="pastel14.jpg" alt="Pastel 14">
+      <img src="pastel15.jpg" alt="Pastel 15">
+    </div>
+    
+    <h3>Galletas Decoradas</h3>
+    <div class="gallery">
+      <!-- 15 fotos de galletas decoradas -->
+      <img src="galleta1.jpg" alt="Galleta Decorada 1">
+      <img src="galleta2.jpg" alt="Galleta Decorada 2">
+      <img src="galleta3.jpg" alt="Galleta Decorada 3">
+      <img src="galleta4.jpg" alt="Galleta Decorada 4">
+      <img src="galleta5.jpg" alt="Galleta Decorada 5">
+      <img src="galleta6.jpg" alt="Galleta Decorada 6">
+      <img src="galleta7.jpg" alt="Galleta Decorada 7">
+      <img src="galleta8.jpg" alt="Galleta Decorada 8">
+      <img src="galleta9.jpg" alt="Galleta Decorada 9">
+      <img src="galleta10.jpg" alt="Galleta Decorada 10">
+      <img src="galleta11.jpg" alt="Galleta Decorada 11">
+      <img src="galleta12.jpg" alt="Galleta Decorada 12">
+      <img src="galleta13.jpg" alt="Galleta Decorada 13">
+      <img src="galleta14.jpg" alt="Galleta Decorada 14">
+      <img src="galleta15.jpg" alt="Galleta Decorada 15">
+    </div>
+  </section>
+  
+  <!-- Sección Sobre Mi -->
+  <section id="nosotros">
+    <h2>Sobre Mi</h2>
+    <p>En Herdy Cakes, fundada por Oralia Granillo, creamos obras de arte comestibles con ingredientes frescos y mucho cariño.</p>
+  </section>
+  
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; Herdy Cakes. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
