@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herdy Cakes</title>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Roboto" rel="stylesheet">
+  <style>
+    /* Reinicio global de box-sizing para una mejor consistencia */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff8f0;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    header {
+      background-color: #ffb6c1;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      color: #fff;
+      margin: 0;
+      font-size: 5em;
+    }
+    
+    /* Estilo para el logo debajo del título */
+    header .logo {
+      max-width: 100px;
+      margin: 10px auto;
+      display: block;
+    }
+    
+    nav {
+      margin-top: 10px;
+    }
+    
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #000;
+    }
+    
+    /* Sección Hero */
+    .hero {
+      background-image: url('ruta/a/tu/imagen-de-fondo.jpg'); /* Reemplaza con la ruta de tu imagen */
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+      background-color: #000; /* Color de reserva */
+    }
+    
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(241, 76, 175, 0.834); /* Sutil overlay */
+    }
+    
+    .hero h2 {
+      position: relative;
+      font-size: 2em; /* Tamaño para "Hecho Con Amor" */
+      z-index: 1;
+      margin: 0;
+    }
+    
+    /* Secciones generales */
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    
+    /* Sección Sabores de Pasteles */
+    .flavors {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+      padding: 20px;
+    }
+    
+    .flavor-card {
+      background-color: #ffe4e1;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .flavor-card img {
+      width: 100%;
+      display: block;
+    }
+    
+    .flavor-card h3 {
+      text-align: center;
+      padding: 10px;
+      margin: 0;
+      font-size: 1.2em;
+    }
+    
+    .flavor-card:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Sección Galería */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+      padding: 20px;
+    }
+    
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Tarjeta de Contacto */
+    .contact-card {
+      background-color: #ffe4e1;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      text-align: left;
+    }
+    
+    .contact-card h3 {
+      margin-top: 0;
+      color: #d2691e;
+    }
+    
+    .contact-card p {
+      margin: 5px 0;
+      font-size: 1em;
+    }
+    
+    .contact-card a {
+      color: #d2691e;
+      text-decoration: none;
+    }
+    
+    /* Pie de página */
+    footer {
+      background-color: #ffe4e1;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    /* Media Queries para responsividad */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 3em;
+      }
+      .hero {
+        height: 300px;
+      }
+      .hero h2 {
+        font-size: 1.5em;
+      }
+      section {
+        padding: 30px 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+      }
+      .flavor-card h3,
+      .contact-card p {
+        font-size: 0.9em;
+      }
+      /* Forzar que las tarjetas de sabores y las imágenes de la galería se muestren en una sola columna */
+      .gallery,
+      .flavors {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <h1>Herdy Cakes</h1>
+    <img class="logo" src="ruta/a/logo.png" alt="Logo de Herdy Cakes">
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#sabores">Sabores</a>
+      <a href="#galeria">Galería</a>
+      <a href="#nosotros">Sobre Mi</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+  
+  <!-- Sección Hero -->
+  <section class="hero" id="inicio">
+    <h2>Hecho Con Amor</h2>
+  </section>
+  
+  <!-- Sección Sabores de Pasteles -->
+  <section id="sabores">
+    <h2>Sabores de Pasteles</h2>
+    <div class="flavors">
+      <div class="flavor-card">
+        <img src="ruta/a/chocolate.jpg" alt="Pastel de Chocolate">
+        <h3>Chocolate</h3>
+      </div>
+      <div class="flavor-card">
+        <img src="ruta/a/vanilla.jpg" alt="Pastel de Vainilla">
+        <h3>Vainilla</h3>
+      </div>
+      <div class="flavor-card">
+        <img src="ruta/a/fresa.jpg" alt="Pastel de Fresa">
+        <h3>Fresa</h3>
+      </div>
+      <div class="flavor-card">
+        <img src="ruta/a/redvelvet.jpg" alt="Pastel Red Velvet">
+        <h3>Red Velvet</h3>
+      </div>
+      <div class="flavor-card">
+        <img src="ruta/a/limon.jpg" alt="Pastel de Limón">
+        <h3>Limón</h3>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sección Galería -->
+  <section id="galeria">
+    <h2>Nuestra Galería</h2>
+    <div class="gallery">
+      <img src="ruta/a/imagen1.jpg" alt="Pastel 1">
+      <img src="ruta/a/imagen2.jpg" alt="Pastel 2">
+      <img src="ruta/a/imagen3.jpg" alt="Pastel 3">
+      <img src="ruta/a/imagen4.jpg" alt="Pastel 4">
+      <img src="ruta/a/imagen5.jpg" alt="Pastel 5">
+      <img src="ruta/a/imagen6.jpg" alt="Pastel 6">
+      <img src="ruta/a/imagen7.jpg" alt="Pastel 7">
+      <img src="ruta/a/imagen8.jpg" alt="Pastel 8">
+      <img src="ruta/a/imagen9.jpg" alt="Pastel 9">
+      <img src="ruta/a/imagen10.jpg" alt="Pastel 10">
+      <img src="ruta/a/imagen11.jpg" alt="Pastel 11">
+      <img src="ruta/a/imagen12.jpg" alt="Pastel 12">
+      <img src="ruta/a/imagen13.jpg" alt="Pastel 13">
+      <img src="ruta/a/imagen14.jpg" alt="Pastel 14">
+      <img src="ruta/a/imagen15.jpg" alt="Pastel 15">
+      <img src="ruta/a/imagen16.jpg" alt="Pastel 16">
+      <img src="ruta/a/imagen17.jpg" alt="Pastel 17">
+      <img src="ruta/a/imagen18.jpg" alt="Pastel 18">
+      <img src="ruta/a/imagen19.jpg" alt="Pastel 19">
+      <img src="ruta/a/imagen20.jpg" alt="Pastel 20">
+      <img src="ruta/a/imagen21.jpg" alt="Pastel 21">
+      <img src="ruta/a/imagen22.jpg" alt="Pastel 22">
+      <img src="ruta/a/imagen23.jpg" alt="Pastel 23">
+      <img src="ruta/a/imagen24.jpg" alt="Pastel 24">
+      <img src="ruta/a/imagen25.jpg" alt="Pastel 25">
+    </div>
+  </section>
+  
+  <!-- Sección Sobre Mi -->
+  <section id="nosotros">
+    <h2>Sobre Mi</h2>
+    <p>En Herdy Cakes, fundada por Oralia Granillo, creamos obras de arte comestibles con ingredientes frescos y mucho cariño.</p>
+  </section>
+  
+  <!-- Sección Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contact-card">
+      <h3>Información de Contacto</h3>
+      <p><strong>Nombre:</strong> Oralia Granillo</p>
+      <p><strong>Negocio:</strong> Herdy Cakes</p>
+      <p><strong>Teléfono:</strong> 6311672556</p>
+      <p><strong>Email:</strong> <a href="mailto:oralitahyd@gmail.com">oralitahyd@gmail.com</a></p>
+      <p><strong>Dirección:</strong> Heroica Nogales, COL: HEROES, SON, México</p>
+    </div>
+  </section>
+  
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2025 Herdy Cakes. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
